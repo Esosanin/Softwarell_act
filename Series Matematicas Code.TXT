@@ -1,0 +1,121 @@
+
+PUROS METODOS
+
+
+///////////////////////////////////////////
+
+public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+        String limite = "0";
+        do{
+            boolean resultado = false;
+        
+            do{
+                System.out.println("Ingresa un valor 1 - 4:\n"+
+                               "1.- Fibonacci\n"+
+                               "2.- Triangulo de Pascal\n"+
+                               "3.- Padovan\n"+
+                               "4.- Salir");
+                System.out.print("R: ");
+                limite = scan.nextLine();
+                resultado = isNumeric(limite);
+            
+            }while(!resultado);
+            
+            switch (limite){
+                case "1":
+                    Fibonacci(scan, limite);
+                    break;
+                case "2":
+                    TrianguloPascal(scan, limite);
+                    break;
+                case "3":
+                    Padovan(scan, limite);
+                    break;
+                default:
+                    break;
+            }
+            System.out.println("\n///////////////////////////////////////////////\n");
+        }while(!limite.equals("4"));
+        
+    }
+    
+    public static boolean isNumeric (String limite){
+        
+        boolean resultado;
+        
+        try{
+            Integer.parseInt(limite);
+            resultado = true;
+        }catch(NumberFormatException excepcion){
+            resultado = false;
+        }
+        return resultado;
+    }
+    
+    public static void Fibonacci(Scanner scan, String limite){
+        
+        boolean resultado = false;
+        
+        do{
+            System.out.print("Añada un limite entero: ");
+            limite = scan.nextLine();
+            resultado = isNumeric(limite);
+            
+        }while(!resultado);
+        
+        System.out.println("Resultado:");
+        for (long a = 0, b = 1, c = 0; c < Integer.parseInt(limite);){
+            System.out.print(c + ", ");
+            c = a + b;
+            a = b;
+            b = c;
+        }
+        
+    }
+    
+    public static void TrianguloPascal(Scanner scan, String limite){
+        
+        boolean resultado = false;
+        
+        do{
+            System.out.print("Añada un limite entero: ");
+            limite = scan.nextLine();
+            resultado = isNumeric(limite);
+            
+        }while(!resultado);
+        
+        long a;
+        
+        for (int i = 0; i < Integer.parseInt(limite); i++) {
+            a = 1;
+            for (int j = 0; j <= i; j++) {
+                System.out.print(a + " ");
+                a = a * (i - j) / (j + 1);
+            }
+            System.out.println("");
+        }
+        
+    }
+    
+    public static void Padovan(Scanner scan, String limite){
+        
+        boolean resultado = false;
+        
+        do{
+            System.out.print("Añada un limite entero: ");
+            limite = scan.nextLine();
+            resultado = isNumeric(limite);
+            
+        }while(!resultado);
+        
+        for (long a = 0, b = 1, c = 1, d = 1; d < Integer.parseInt(limite);){
+            System.out.println(d + ", ");
+            d = a + b;
+            a = b;
+            b = c;
+            c = d;
+        }
+        
+    }
