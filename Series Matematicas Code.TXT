@@ -4,7 +4,10 @@ PUROS METODOS
 
 ///////////////////////////////////////////
 
-public static void main(String[] args) {
+public class SeriesMatematicas {
+
+    
+    public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
         String limite = "0";
@@ -59,10 +62,11 @@ public static void main(String[] args) {
         boolean resultado = false;
         
         do{
-            System.out.print("Añada un limite entero: ");
+            System.out.print("Añada un limite entero (maximo 5000): ");
             limite = scan.nextLine();
             resultado = isNumeric(limite);
-            
+            if (Integer.parseInt(limite) > 5000)
+                resultado = false;
         }while(!resultado);
         
         System.out.println("Resultado:");
@@ -80,10 +84,11 @@ public static void main(String[] args) {
         boolean resultado = false;
         
         do{
-            System.out.print("Añada un limite entero: ");
+            System.out.print("Añada un limite entero (limite menor a 100): ");
             limite = scan.nextLine();
             resultado = isNumeric(limite);
-            
+            if (Integer.parseInt(limite) > 100)
+                resultado = false;
         }while(!resultado);
         
         long a;
@@ -104,14 +109,15 @@ public static void main(String[] args) {
         boolean resultado = false;
         
         do{
-            System.out.print("Añada un limite entero: ");
+            System.out.print("Añada un limite entero (maximo5000): ");
             limite = scan.nextLine();
             resultado = isNumeric(limite);
-            
+            if (Integer.parseInt(limite) > 5000)
+                resultado = false;
         }while(!resultado);
         
         for (long a = 0, b = 1, c = 1, d = 1; d < Integer.parseInt(limite);){
-            System.out.println(d + ", ");
+            System.out.print(d + ", ");
             d = a + b;
             a = b;
             b = c;
